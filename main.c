@@ -4,7 +4,7 @@
  * free_data - frees data structure
  *
  * @dstruct: data structure
- * Return: no return
+ * Return: no return value
  */
 void free_data(data_shell *dstruct)
 {
