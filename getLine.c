@@ -1,23 +1,23 @@
 #include "main.h"
 
 /**
- * bring_line - Function assigns the line var for get_line
- * @linePtr: Variable ptr that is been called to line
- * @buffer: Variable buffer stores the input ptr
+ * bring_line - This code assigns the line var for get_line
+ * @line_ptr: Var for pointer that has been called to line
+ * @buffer: Var Buffer that stores the input pointer
  * @n: size of line
  * @j: size of buffer
  */
-void bring_line(char **linePtr, size_t *n, char *buffer, size_t j)
+void bring_line(char **line_ptr, size_t *n, char *buffer, size_t j)
 {
 
-	if (*linePtr == NULL)
+	if (*line_ptr == NULL)
 	{
 		if (j > BUFSIZE)
 			*n = j;
 
 		else
 			*n = BUFSIZE;
-		*linePtr = buffer;
+		*line_ptr = buffer;
 	}
 	else if (*n < j)
 	{
@@ -25,22 +25,22 @@ void bring_line(char **linePtr, size_t *n, char *buffer, size_t j)
 			*n = j;
 		else
 			*n = BUFSIZE;
-		*linePtr = buffer;
+		*line_ptr = buffer;
 	}
 	else
 	{
-		_strcpy(*linePtr, buffer);
+		_strcpy(*line_ptr, buffer);
 		free(buffer);
 	}
 }
 /**
- * get_line - Function that Reads input from stream
- * @linePtr: Variable buffer stores the input
- * @n: Var n is the size of linePtr
- * @stream: Var stream is to read from line
+ * get_line - Fucntion that Reads input from stream
+ * @line_ptr: Var buffer that stores the input
+ * @n: size of line_ptr
+ * @stream: Var stream reads from the line pointer
  * Return: The number of bytes
  */
-ssize_t get_line(char **linePtr, size_t *n, FILE *stream)
+ssize_t get_line(char **line_ptr, size_t *n, FILE *stream)
 {
 	int i;
 	static ssize_t input;
@@ -76,7 +76,7 @@ ssize_t get_line(char **linePtr, size_t *n, FILE *stream)
 		input++;
 	}
 	buffer[input] = '\0';
-	bring_line(linePtr, n, buffer, input);
+	bring_line(line_ptr, n, buffer, input);
 	retval = input;
 	if (i != 0)
 		input = 0;
