@@ -4,7 +4,7 @@
  * exec_line - finds builtins and commands 
  *
  * @dstruct: data relevant (args)
- * Return: return 1 if success.
+ * Return: return 1 if successful.
  */
 int exec_line(data_shell *dstruct)
 {
