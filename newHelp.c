@@ -13,7 +13,7 @@ void aux_help_env(void)
 	write(STDOUT_FILENO, help, _strlen(help));
 }
 /**
- * aux_help_setenv - writes help information for builtin updated or added env variables
+ * aux_help_setenv - writes help info for builtin updated or added env vars
  * Return: none
  */
 void aux_help_setenv(void)

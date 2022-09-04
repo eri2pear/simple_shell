@@ -4,7 +4,7 @@
  * strcat_cd - function that concatenates the message for cd error
  *
  * @drev: data relevant (directory)
- * @msg: message 
+ * @msg: message
  * @error: output message
  * @ver_str: counter lines
  * Return: error message

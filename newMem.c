@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _memcpy - Function to copy information from intial pointer source to new pointer.
+ * _memcpy - Function copies info from intial pointer source to new pointer.
  * @newptr: var name for new pointer.
  * @ptr: var name for intial pointer source.
  * @size: var name for size of the new pointer.

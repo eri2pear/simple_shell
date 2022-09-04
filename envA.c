@@ -26,12 +26,12 @@ int cmp_env_name(const char *env_a, const char *name)
 /**
  * _getenv - get an environment variable
  * @name: name of the environment variable
- * @env_b: environment variable
+ * @environ: environment variable
  *
  * Return: value of the environment variable if is found.
  * In other case, returns NULL.
  */
-char *_getenv(const char *name, char **env_b)
+char *_getenv(const char *name, char **_environ)
 {
 	char *ptr_env;
 	int i, mov;
@@ -41,13 +41,13 @@ char *_getenv(const char *name, char **env_b)
 	mov = 0;
 	/* Compare all environment variables */
 	/* environ is declared in the header file */
-	for (i = 0; env_b[i]; i++)
+	for (i = 0; _environ[i]; i++)
 	{
 		/* If name and env are equal */
-		mov = cmp_env_name(env_b[i], name);
+		mov = cmp_env_name(_environ[i], name);
 		if (mov)
 		{
-			ptr_env = env_b[i];
+			ptr_env = _environ[i];
 			break;
 		}
 	}
@@ -65,13 +65,13 @@ int _env(data_shell *datashell)
 {
 	int i, j;
 
-	for (i = 0; datashell->env_b[i]; i++)
+	for (i = 0; datashell->_environ[i]; i++)
 	{
 
-		for (j = 0; datashell->env_b[i][j]; j++)
+		for (j = 0; datashell->_environ[i][j]; j++)
 			;
 
-		write(STDOUT_FILENO, datashell->env_b[i], j);
+		write(STDOUT_FILENO, datashell->_environ[i], j);
 		write(STDOUT_FILENO, "\n", 1);
 	}
 	datashell->status = 0;

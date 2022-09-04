@@ -162,10 +162,8 @@ int check_error_cmd(char *dir, data_shell *dstruct)
  */
 int cmd_exec(data_shell *dstruct)
 {
-	pid_t pd;
-	pid_t wpd;
-	int state;
-	int exec;
+	pid_t pd, wpd;
+	int state, exec;
 	char *dir;
 	(void)wpd;
 
@@ -195,8 +193,7 @@ int cmd_exec(data_shell *dstruct)
 	}
 	else
 	{
-		do
-		{
+		do {
 			wpd = waitpid(pd, &state, WUNTRACED);
 		} while (!WIFEXITED(state) && !WIFSIGNALED(state));
 	}
