@@ -36,12 +36,12 @@ void set_data(data_shell *dstruct, char **av)
 	dstruct->status = 0;
 	dstruct->counter = 1;
 
-	for (i = 0; environ[i]; i++);
-	
+	for (i = 0; environ[i]; i++)
+
 	dstruct->_environ = malloc(sizeof(char *) * (i + 1));
-	
-	for (i = 0; environ[i]; i++);
-	
+
+	for (i = 0; environ[i]; i++)
+
 	dstruct->_environ[i] = _strdup(environ[i]);
 	dstruct->_environ[i] = NULL;
 	dstruct->pid = aux_itoa(getpid());
