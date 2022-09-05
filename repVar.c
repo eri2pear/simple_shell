@@ -89,16 +89,16 @@ int check_vars(r_var **h, char *in, char *st, data_shell *data)
  * @head: head of the linked list
  * @input: input string
  * @new_input: new input string (replaced)
- * @nlen: new length
+ * @new_len: new length
  * Return: replaced string
  */
-char *replaced_input(r_var **head, char *input, char *new_input, int nlen)
+char *replaced_input(r_var **head, char *input, char *new_input, int new_leng)
 {
 	r_var *indx;
 	int i, j, k;
 
 	indx = *head;
-	for (j = i = 0; i < nlen; i++)
+	for (j = i = 0; i < new_leng; i++)
 	{
 		if (input[j] == '$')
 		{
@@ -146,7 +146,7 @@ char *rep_var(char *input, data_shell *datash)
 {
 	r_var *head, *indx;
 	char *status, *new_input;
-	int olen, nlen;
+	int olen, new_leng;
 
 	status = aux_itoa(datash->status);
 	head = NULL;
@@ -160,20 +160,20 @@ char *rep_var(char *input, data_shell *datash)
 	}
 
 	indx = head;
-	nlen = 0;
+	new_leng = 0;
 
 	while (indx != NULL)
 	{
-		nlen += (indx->len_val - indx->len_var);
+		new_leng += (indx->len_val - indx->len_var);
 		indx = indx->next;
 	}
 
-	nlen += olen;
+	new_leng += olen;
 
-	new_input = malloc(sizeof(char) * (nlen + 1));
-	new_input[nlen] = '\0';
+	new_input = malloc(sizeof(char) * (new_leng + 1));
+	new_input[new_leng] = '\0';
 
-	new_input = replaced_input(&head, input, new_input, nlen);
+	new_input = replaced_input(&head, input, new_input, new_leng);
 
 	free(input);
 	free(status);
