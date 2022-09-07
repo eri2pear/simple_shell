@@ -108,19 +108,19 @@ int _strcmp(char *s1, char *s2);
 char *_strchr(char *s, char c);
 int _strspn(char *s, char *accept);
 
-/* aux_mem.c */
+/* newMem.c */
 void _memcpy(void *newptr, const void *ptr, unsigned int size);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char **_reallocdp(char **ptr, unsigned int old_size, unsigned int new_size);
 
-/* aux_str2.c */
+/* newStr2.c */
 char *_strdup(const char *s);
 int _strlen(const char *s);
 int cmp_chars(char str[], const char *delim);
 char *_strtok(char str[], const char *delim);
 int _isdigit(const char *s);
 
-/* aux_str3.c */
+/* newStr3.c */
 void rev_string(char *s);
 
 /* check_syntax_error.c */
@@ -130,11 +130,11 @@ int first_char(char *input, int *i);
 void print_syntax_error(data_shell *datash, char *input, int i, int bool);
 int check_syntax_error(data_shell *datash, char *input);
 
-/* shell_loop.c */
+/* loopShell.c */
 char *without_comment(char *in);
 void shell_loop(data_shell *datashell);
 
-/* read_line.c */
+/* readLine.c */
 char *read_line(int *i_eof);
 
 /* tokenize.c */
