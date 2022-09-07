@@ -111,12 +111,12 @@ char *_strtok(char str[], const char *delim)
 }
 
 /**
- * _isnumber - defines if string passed is a number
+ * _isdigit - defines if string passed is a number
  *
  * @s: input string
- * Return: 1 if string is a number. otherwise return 0.
+ * Return: 1 if string is a number. 0 in other case.
  */
-int _isnumber(const char *s)
+int _isdigit(const char *s)
 {
 	unsigned int i;
 
