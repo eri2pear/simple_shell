@@ -89,7 +89,7 @@ int check_vars(r_var **h, char *in, char *st, data_shell *data)
  * @head: head of the linked list
  * @input: input string
  * @new_input: new input string (replaced)
- * @new_len: new length
+ * @new_leng: new length
  * Return: replaced string
  */
 char *replaced_input(r_var **head, char *input, char *new_input, int new_leng)
